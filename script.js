@@ -172,9 +172,12 @@ useCustomBtn.addEventListener("click", () => {
       "Please provide at least 3 words. Keeping the current word list.",
       "settings__status--warn"
     );
+    customWordsEl.value = wordBank.join(", ");
     return;
   }
-  applyWordBank(customWords, "your custom list");
+  if (!applyWordBank(customWords, "your custom list")) {
+    customWordsEl.value = wordBank.join(", ");
+  }
 });
 loadRandomBtn.addEventListener("click", loadRandomWords);
 
