@@ -1,4 +1,4 @@
-# Word Match Game
+# Word Match Game 
 
 A playful, single-page word matching game for early readers.
 
