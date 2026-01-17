@@ -103,7 +103,7 @@ const loadRandomWords = async () => {
   setWordStatus("Loading random words...", "settings__status--loading");
   try {
     const response = await fetch(
-      "https://random-word-api.herokuapp.com/word?number=12&swear=0"
+      "https://random-word-api.vercel.app/api?words=12"
     );
     if (!response.ok) {
       throw new Error("Request failed");
@@ -116,6 +116,8 @@ const loadRandomWords = async () => {
     const unique = Array.from(new Set(cleaned));
     if (applyWordBank(unique, "the internet")) {
       customWordsEl.value = unique.join(", ");
+    } else {
+      customWordsEl.value = "";
     }
   } catch (error) {
     setWordStatus(
@@ -143,7 +145,7 @@ const buildBoard = () => {
 
 const handleGuess = (word, button) => {
   tries += 1;
-  if (word === currentWord) {
+  if (word.toLowerCase() === currentWord.toLowerCase()) {
     score += 1;
     button.classList.add("card--correct");
     setFeedback("Great job! You found it!", "feedback--success");
