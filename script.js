@@ -35,11 +35,14 @@ let tries = 0;
 let currentWord = "";
 let wordBank = [...defaultWords];
 
-const shuffle = (array) =>
-  array
-    .map((item) => ({ item, sort: Math.random() }))
-    .sort((a, b) => a.sort - b.sort)
-    .map(({ item }) => item);
+const shuffle = (array) => {
+  const result = array.slice();
+  for (let i = result.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [result[i], result[j]] = [result[j], result[i]];
+  }
+  return result;
+};
 
 const pickWords = () => {
   const shuffled = shuffle(wordBank);
