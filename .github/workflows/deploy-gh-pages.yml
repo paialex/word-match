@@ -19,6 +19,9 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: https://paialex.github.io/word-match/
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -29,3 +32,4 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: .
           publish_branch: gh-pages
+          exclude_assets: '.github,.git*'
