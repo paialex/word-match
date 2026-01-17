@@ -166,6 +166,14 @@ resetBtn.addEventListener("click", () => {
 soundBtn.addEventListener("click", speakWord);
 useCustomBtn.addEventListener("click", () => {
   const customWords = normalizeWords(customWordsEl.value);
+
+  if (!Array.isArray(customWords) || customWords.length < 3) {
+    setWordStatus(
+      "Please provide at least 3 words. Keeping the current word list.",
+      "settings__status--warn"
+    );
+    return;
+  }
   applyWordBank(customWords, "your custom list");
 });
 loadRandomBtn.addEventListener("click", loadRandomWords);
