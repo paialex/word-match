@@ -2,6 +2,12 @@
 
 A playful, single-page word matching game for early readers.
 
+## Live Demo
+
+**Play the game:** [https://paialex.github.io/word-match/](https://paialex.github.io/word-match/)
+
+The app is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
+
 ## Run locally
 
 Use any static server from the project root so the browser can find `index.html`:
