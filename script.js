@@ -175,7 +175,9 @@ useCustomBtn.addEventListener("click", () => {
     customWordsEl.value = wordBank.join(", ");
     return;
   }
-  applyWordBank(customWords, "your custom list");
+  if (!applyWordBank(customWords, "your custom list")) {
+    customWordsEl.value = wordBank.join(", ");
+  }
 });
 loadRandomBtn.addEventListener("click", loadRandomWords);
 
