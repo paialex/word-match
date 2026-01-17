@@ -85,12 +85,16 @@ const normalizeWords = (raw) =>
     .filter((word) => word.length > 0);
 
 const applyWordBank = (words, sourceLabel) => {
-  if (words.length < 3) {
-    setWordStatus("Please provide at least 3 words.", "settings__status--warn");
+  const uniqueWords = Array.from(new Set(words));
+  if (uniqueWords.length < 6) {
+    setWordStatus(
+      "Please provide at least 6 unique words.",
+      "settings__status--warn"
+    );
     return false;
   }
-  wordBank = words;
-  setWordStatus(`Using ${words.length} words from ${sourceLabel}.`);
+  wordBank = uniqueWords;
+  setWordStatus(`Using ${uniqueWords.length} words from ${sourceLabel}.`);
   buildBoard();
   return true;
 };
