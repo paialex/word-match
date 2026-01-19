@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Word Match Game</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app">
+      <header class="app__header">
+        <div>
+          <p class="app__eyebrow">Word Match Game</p>
+          <h1>Find the word that matches!</h1>
+          <p class="app__subtitle">
+            Tap the card that says the same word as the big word.
+          </p>
+        </div>
+        <div class="scoreboard">
+          <div class="scoreboard__item">
+            <span>Score</span>
+            <strong id="score">0</strong>
+          </div>
+          <div class="scoreboard__item">
+            <span>Tries</span>
+            <strong id="tries">0</strong>
+          </div>
+        </div>
+      </header>
+
+      <section class="target">
+        <p>Match this word:</p>
+        <div class="target__word" id="target-word">Cat</div>
+        <button class="btn" id="sound-btn" type="button">
+          🔊 Hear the word
+        </button>
+      </section>
+
+      <section class="settings">
+        <div class="settings__header">
+          <h2>Word List Settings</h2>
+          <p>Choose custom words or load a random set from the internet.</p>
+        </div>
+        <div class="settings__controls">
+          <label class="settings__label" for="custom-words">
+            Custom words (comma or line separated)
+          </label>
+          <textarea
+            id="custom-words"
+            rows="3"
+            placeholder="Cat, Dog, Sun, Moon, Ball"
+          ></textarea>
+          <div class="settings__buttons">
+            <button class="btn btn--secondary" id="use-custom" type="button">
+              Use Custom Words
+            </button>
+            <button class="btn btn--ghost" id="load-random" type="button">
+              Load Random Words
+            </button>
+          </div>
+          <p class="settings__status" id="word-status" aria-live="polite"></p>
+        </div>
+      </section>
+
+      <section class="board" id="board" aria-live="polite"></section>
+
+      <section class="feedback" id="feedback" role="status" aria-live="polite"></section>
+
+      <footer class="controls">
+        <button class="btn btn--secondary" id="new-round" type="button">
+          New Word
+        </button>
+        <button class="btn btn--ghost" id="reset" type="button">
+          Reset Score
+        </button>
+      </footer>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
